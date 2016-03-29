@@ -1,0 +1,349 @@
+<!doctype html>
+<html ng-app="mrFeedbackApp">
+    <head>
+        <meta charset="utf-8">
+        <title>myApp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="../dist/mrFeedback.css" />
+        <link rel="stylesheet" href="app.css" />
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../build/mrFeedback.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="jumbotron">
+                        <div class="page-header">
+                            <h2>mrFeedback - <small>Create box feedback: simple, complete, personalized.</small></h2>
+                        </div>
+                        <h4>A simple component to create box feedback wich you can:</h4>
+                        <ol>
+                            <li>Show <mark>simple message</mark>;</li>
+                            <li>Show message with <mark>personalized buttons</mark> and <mark>personalized function</mark> to trigger on click of the buttons;</li>
+                        </ol>
+                    </div>
+                    <div ng-controller="appCtrl as vm">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="btn btn-primary" ng-click="vm.simpleFeedback()">Try me</div>
+                                <figure class="highlight">
+                                    <pre><code class="language-html" data-lang="html"><span class="nt">var feedback = {
+    title:"My box title",
+    msg:"This component is cool!!!",
+    close: true
+};
+$uiMrFeedback.open(feedback);</span></code></pre>
+                                </figure>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="btn btn-primary" ng-click="vm.simpleFeedbackWithButtons()">Try me (with all options)</div>
+                                <figure class="highlight">
+                                    <pre><code class="language-html" data-lang="html"><span class="nt">var functionClose = function(param){
+    console.log("Instance dismissed with the param: " + param);  
+};
+var functionConnected = function(param1,param2){
+    console.log(param1 + "! You have pressed the button " + param2);
+};
+var feedback = {
+    title:"My box title",
+    msg:"This component is cool!!!",
+    animation:"zoom",
+    theme:"ios",
+    close: true,
+    fnClose:{
+        func:functionClose,
+        params:["Ok!"]
+    },
+    btnAction:[
+        {
+            text:"Button Yeah",
+            func: functionConnected,
+            params:["Excellent","Yeah"]
+        },
+        {
+            text:"Button Noooo",
+            func: functionConnected,
+            params:["Damn","Noooo"]
+        }
+    ];
+};
+$uiMrFeedback.open(feedback);</span></code></pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="page-header">
+                                    <h3>Installation</h3>
+                                </div>
+                                <h4>Method 1: Install with bower</h4>
+                                <figure class="highlight">
+                                    <pre><code>$ bower install mrFeedback</code></pre>
+                                </figure>
+                                <h4>Method 2: Download the files</h4>
+                                <div class="btn btn-primary">Download</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="page-header">
+                                    <h3>Initialization <small>Reference dependencies (jQuery, angular, font awasome) and plugin in the html</small></h3>
+                                </div>
+                                <figure class="highlight">
+                                    <pre><code>&lt;link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css" />
+&lt;link rel="stylesheet" href="dist/mrFeedback.css" />
+&lt;script src="bower_components/jquery/dist/jquery.min.js">&lt;/script>
+&lt;script src="bower_components/angular/angular.min.js">&lt;/script>
+&lt;script src="dist/mrFeedback.js">&lt;/script>
+                                    </code></pre>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="page-header">
+                                    <h3>Usage</h3>
+                                </div>
+                                <ul>
+                                    <li>Inject to your controller the $uiMrFeedback provider.</li>
+                                    <li>
+                                        create a new instance of the plugin with the method $uiMrFeedback.open and passing the option's object:
+                                        <figure class="highlight">
+                                            <pre><code class="language-html" data-lang="html"><span class="nt">var feedback = {
+    title:"My box title", //mandatory
+    msg:"This component is cool!!!", //mandatory
+    close: true
+};
+var instance = $uiMrFeedback.open(feedback);</span></code></pre>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        if you want you can change the value of the dynamic options for the instance:
+                                        <figure class="highlight">
+                                            <pre><code class="language-html" data-lang="html"><span class="nt">instance.msg = "Message modified dynamically";</span></code></pre>
+                                        </figure>
+                                    </li>
+                                    <li>
+                                        you can destroy the box also using the instance method .remove():
+                                        <figure class="highlight">
+                                            <pre><code class="language-html" data-lang="html"><span class="nt">instance.remove();</span></code></pre>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="page-header">
+                                    <h3>General Configuration <small>The general configuration for the options settable in your module config.</small></h3>
+                                </div>
+                                <table class="table tableConf table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Configuration</th>
+                                            <th class="possibleValue">Possible value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>mrFeedbackConfigProvider.defaultTheme</td>
+                                            <td>bootstrap<br/>mac<br/>windows10<br/>ios<br/>android<br/>facebook<br/></td>
+                                            <td>You can set the default theme value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultTheme = "facebook"</mark></td>
+                                        </tr>
+                                        <tr>
+                                            <td>mrFeedbackConfigProvider.defaultAnimation</td>
+                                            <td>fade<br/>zoom<br/>slide-left<br/>slide-top<br/>flip<br/></td>
+                                            <td>You can set the default animation value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="page-header">
+                                    <h3>Options Configuration <small>Here are the keys that you can use in the options' object passed to $uiMrFeedback.open</small></h3>
+                                </div>
+                                <table class="table tableConf table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Argument</th>
+                                            <th class="possibleValue">Possible value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>title</td>
+                                            <td></td>
+                                            <td>A string that represent the title of the feedback.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>msg</td>
+                                            <td></td>
+                                            <td>A string that represent the message of the feedback.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>theme</td>
+                                            <td>bootstrap<br/>mac<br/>windows10<br/>ios<br/>android<br/>facebook<br/></td>
+                                            <td>A string that represent the theme used to render the box. The default theme depends on the browser user agent: <ul><li>mac: for Mac computer</li><li>windows10: for Windows computer and devices</li><li>ios: for iOS devices</li><li>android: for Android devices</li></ul>You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultTheme = "facebook"</mark></td>
+                                        </tr>
+                                        <tr>
+                                            <td>animation</td>
+                                            <td>fade<br/>zoom<br/>slide-left<br/>slide-top<br/>flip<br/></td>
+                                            <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark></td>
+                                        </tr>
+                                        <tr>
+                                            <td>close</td>
+                                            <td>true<br/>false</td>
+                                            <td>A boolean use to show or not the standard close button.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>fnClose</td>
+                                            <td></td>
+                                            <td>An object in wich you can configure a function that will run when the standard button close is clicked. The field of the object are: <ul><li><mark>func</mark>: the function that you want to run</li><li><mark>params</mark>: an array of params that will be the arguments of the function</li></ul></td>
+                                        </tr>
+                                        <tr>
+                                            <td>btnAction</td>
+                                            <td></td>
+                                            <td>An array of object that describe the buttons you want to create inside the box. Every object must contains:<ul><li>a field <mark>text</mark> with the string you want to put in the button</li><li>a field <mark>func</mark> with the function you want to trigger when the button are clicked</li><li>a field <mark>params</mark> that is an array of the arguments for the function</li></ul></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="page-header">
+                                    <h3>Try yourself <small>Create feedbacks with different options and modify the instance of the feedback in real time.</small></h3>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="title" ng-model="vm.title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="msg">Message</label>
+                                    <input type="text" class="form-control" id="msg" placeholder="message" ng-model="vm.msg">
+                                </div>
+                                <div class="form-group">
+                                    <p><b>Theme</b></p>
+                                    <select class="form-control" ng-model="vm.theme">
+                                        <option value="mac">Mac</option>
+                                        <option value="windows10">Windows 10</option>
+                                        <option value="android">Android</option>
+                                        <option value="ios">iOS</option>
+                                        <option value="facebook">Facebook</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <p><b>Animation</b></p>
+                                    <select class="form-control" ng-model="vm.animation">
+                                        <option value="fade">Fade</option>
+                                        <option value="zoom">Zoom</option>
+                                        <option value="slide-left">Slide left</option>
+                                        <option value="slide-top">Slide top</option>
+                                        <option value="flip">Flip</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <p><b>Close button</b></p>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" placeholder="button close" ng-model="vm.btnClose">
+                                            Show
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <p><b>Buttons Action</b></p>
+                                    <input type="checkbox" ng-model="vm.btnAction"/> Show
+                                    <div ng-if="vm.btnAction">
+                                        <p>An array of object that describe the buttons you want to create inside the box. Every button must contains:</p>
+                                        <ul>
+                                            <li>a field "text" with the string you want to put in the button</li>
+                                            <li>a field "func" with the function you want to trigger if the button are clicked</li>
+                                            <li>a field "params" that is an array of the arguments for the function</li>
+                                        </ul>
+                                        <span>In this example we are created 2 button that print 2 different phrases in console</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <p><b>Auto Close</b></p>
+                                    <p>Is possible to set an option (autoClose:true) if you want dismiss the box when one of the button's action is clicked (works only with the option btnAction active)</p>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" ng-model="vm.autoClose">
+                                            Active
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="btn btn-primary" ng-click="vm.createFeedback()">Create Feedback</div>
+                                <hr/>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div>
+                                    <div ng-repeat="instance in vm.instances">
+                                        <p>You created instance n. {{$index}}</p>
+                                        <div class="form-group">
+                                            <label for="title" class="col-sm-2">Title</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="title" placeholder="title" ng-model="instance.title" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="msg" class="col-sm-2">Message</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="msg" placeholder="message" ng-model="instance.msg" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <p class="col-sm-2"><b>Close button</b></p>
+                                            <div class="col-sm-10 checkbox">
+                                                <label>
+                                                    <input type="checkbox" placeholder="button close" ng-model="instance.close">
+                                                    Show
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <p class="col-sm-2"><b>Auto close</b></p>
+                                            <div class="col-sm-10">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" placeholder="button close" ng-model="instance.autoClose">
+                                                        Active
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-sm-2"><b>Animation*</b></span>
+                                            <div class="col-sm-10 checkbox">
+                                                {{instance.animation}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <span class="col-sm-2"><b>Theme*</b></span>
+                                            <div class="col-sm-10 checkbox">
+                                                {{instance.theme}}
+                                            </div>
+                                        </div>
+                                        <div class="btn btn-danger" ng-click="instance.remove()">Close instance</div><br/>
+                                        <p>The field with * are not modifieble after the creation of the box.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
