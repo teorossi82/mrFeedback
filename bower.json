@@ -1,11 +1,11 @@
 {
   "name": "mrFeedback",
   "version": "0.1.0",
-  "homepage": "https://github.com/teorossi82/mrFeedback",
+  "homepage": "http://teorossi82.github.io/mrFeedback/",
   "authors": [
     "Matteo Rossi <teorossi82@yahoo.it>"
   ],
-  "description": "is a component that permit to create and show a 'box feedback' to the user. You can set 'title' and 'message' to show, add button that clicked trigger function that you pass it, ecc...",
+  "description": "Create box feedback for your Angular App: simple, complete, personalized. With this plugin you can create and show a 'box feedback' to the user. You can set 'title' and 'message' to show, add buttons that run connected functions when clicked",
   "main": [
       "dist/mrFeedback.js",
       "dist/mrFeedback.css"
@@ -26,6 +26,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "build",
     "test",
     "tests"
   ]
