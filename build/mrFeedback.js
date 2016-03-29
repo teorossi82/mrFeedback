@@ -35,7 +35,8 @@
             this.open = function(options) {
                 if(!options)
                     return $log.error("mrFeedback: An object with title and msg field is mandatory to create the box");
-                $("body").append("<mr-feedback-content-" + index + " class='mrFeedbackContent'></mr-feedback-content>");
+                var container = (options.appendTo && $(options.appendTo).length>0) ? options.appendTo : "body";
+                $(container).append("<mr-feedback-content-" + index + " class='mrFeedbackContent'></mr-feedback-content>");
                 mrFeedbackScope["instancesFeedback_" + index] = options;
                 var instance = mrFeedbackScope["instancesFeedback_" + index];
                 instance.remove = function(){
