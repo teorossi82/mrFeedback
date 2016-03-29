@@ -1,5 +1,5 @@
 /*
- mrFeedback v0.1.0
+ mrFeedback v0.2.0
  (c) 2010-2016 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
  License: MIT
 */
