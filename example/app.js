@@ -89,5 +89,9 @@
             var inst = $uiMrFeedback.open(feedback);
             vm.instances.push(inst);
         };
+        vm.removeFeedback = function(inst,index){
+            inst.remove();
+            vm.instances.splice(index,1);
+        };
     }
 })();
