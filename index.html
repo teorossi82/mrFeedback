@@ -342,7 +342,7 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                                 {{instance.theme}}
                                             </div>
                                         </div>
-                                        <div class="btn btn-danger" ng-click="instance.remove()">Close instance</div><br/>
+                                        <div class="btn btn-danger" ng-click="vm.removeFeedback(instance,$index)">Close instance</div><br/>
                                         <p>The field with * are not modifieble after the creation of the box.</p>
                                     </div>
                                 </div>
