@@ -1,11 +1,8 @@
 {
-  "name": "mrFeedback",
+  "name": "mr-feedback",
   "version": "0.2.0",
   "description": "is a component which you can create and show a 'box feedback' to the user. You can set 'title' and 'message' to show, add button that clicked trigger function that you pass it, ecc...",
-  "main": [
-    "dist/mrFeedback.min.css",
-    "dist/mrFeedback.min.js"
-  ],
+  "main": "dist/mrFeedback.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
