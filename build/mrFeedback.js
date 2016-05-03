@@ -1,5 +1,5 @@
 /*
- mrFeedback v0.2.0
+ mrFeedback v0.2.2
  (c) 2010-2016 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
  License: MIT
 */
@@ -203,6 +203,14 @@
                 $element.find(".mrFeedback").addClass(animation + "-show");
             },50);
         };
+        var setModal = function(){
+            animation = "animation-none";
+            $element.find(".mrFeedback").addClass("mrFeedback-show " + animation);
+            $timeout(function(){
+                $element.find(".mrFeedback").addClass(animation + "-show");
+                centerBox();
+            },50);
+        };
         var removeAnimation = function(){
             $element.find(".mrFeedback").removeClass(animation + "-show");
             $timeout(function(){
@@ -211,11 +219,20 @@
                 $element.parent()[0].remove();
             },350);
         };
+        var centerBox = function(){
+            var box = $element.find(".mrFeedback");
+            var boxHeight = angular.element(box).height();
+            var boxTop = (window.innerHeight-boxHeight)/2;
+            angular.element(box).css("top",boxTop+"px");
+        };
         $scope.$watch("mrFeedback.feedback",function(newVal,oldVal){
             //if(newVal !== oldVal){
                 if(newVal){
-                    setAnimation();
                     vm.theme = vm.feedback && vm.feedback.theme ? vm.feedback.theme : mrFeedbackConfig.defaultTheme;
+                    if(vm.feedback.modal)
+                        setModal();
+                    else
+                        setAnimation();
                 }
                 else{
                     removeAnimation();

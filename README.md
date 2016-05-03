@@ -18,6 +18,9 @@ The plugin requires
 Open site [http://teorossi82.github.io/mrFeedback](http://teorossi82.github.io/mrFeedback/)
 
 ## News
+v0.2.2
+* With the option `modal:true` the box is rendered in the middle of the window. With this option the animation is disabled.
+
 v0.2.1
 * Added new option `modal` to open box with a layer that block interaction with other element
 

@@ -53,9 +53,8 @@ var functionConnected = function(param1,param2){
 var feedback = {
     title:"My box title",
     msg:"This component is cool!!!",
-    animation:"zoom",
     theme:"ios",
-    modal:true,
+    modal:true, /*with modal:true the animation option is disabled*/
     close: true,
     fnClose:{
         func:functionClose,
@@ -200,7 +199,7 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                         <tr>
                                             <td>animation</td>
                                             <td>fade<br/>zoom<br/>slide-left<br/>slide-top<br/>flip<br/></td>
-                                            <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark></td>
+                                            <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark>. With modal:true the animation option is disabled.</td>
                                         </tr>
                                         <tr>
                                             <td>close</td>
@@ -210,7 +209,7 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                         <tr>
                                             <td>modal</td>
                                             <td>true<br/>false</td>
-                                            <td>A boolean use to open the box in modal state (with a layer that block interaction with other element).</td>
+                                            <td>A boolean use to open the box in modal state (with a layer that block interaction with other element). With modal:true the animation option is disabled.</td>
                                         </tr>
                                         <tr>
                                             <td>fnClose</td>

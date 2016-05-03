@@ -23,6 +23,16 @@
     -o-transition:0.3s linear;
     -ms-transition:0.3s linear;
     display: none;
+    &.animation-none{
+        -webkit-transition:0.05s linear;
+        -moz-transition:0.05s linear;
+        -o-transition:0.05s linear;
+        -ms-transition:0.05s linear;
+        opacity:0;
+        &-show{
+            opacity:1;
+        }
+    }
     &.animation-fade{
         opacity:0;
         &-show{
