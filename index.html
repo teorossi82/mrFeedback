@@ -5,11 +5,11 @@
         <title>mrFeedback - Create box feedback: simple, complete, personalized</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="dist/mrFeedback.css" />
+        <link rel="stylesheet" href="https://rawgit.com/teorossi82/mrFeedback/master/dist/mrFeedback.css" />
         <link rel="stylesheet" href="example/app.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
-        <script src="dist/mrFeedback.js"></script>
+        <script src="https://rawgit.com/teorossi82/mrFeedback/master/dist/mrFeedback.js"></script>
         <script type="text/javascript" src="example/app.js"></script>
     </head>
     <body>
@@ -53,10 +53,10 @@ var functionConnected = function(param1,param2){
 var feedback = {
     title:"My box title",
     msg:"This component is cool!!!",
-    animation:"zoom",
     theme:"ios",
-    modal:true,
+    modal:true, /*with modal:true the animation option is disabled*/
     close: true,
+    closeText:"Chiudi",
     fnClose:{
         func:functionClose,
         params:["Ok!"]
@@ -200,7 +200,12 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                         <tr>
                                             <td>animation</td>
                                             <td>fade<br/>zoom<br/>slide-left<br/>slide-top<br/>flip<br/></td>
-                                            <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark></td>
+                                            <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark>. With modal:true the animation option is disabled.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>modal</td>
+                                            <td>true<br/>false</td>
+                                            <td>A boolean use to open the box in modal state (with a layer that block interaction with other element). With modal:true the animation option is disabled.</td>
                                         </tr>
                                         <tr>
                                             <td>close</td>
@@ -208,9 +213,9 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                             <td>A boolean use to show or not the standard close button.</td>
                                         </tr>
                                         <tr>
-                                            <td>modal</td>
-                                            <td>true<br/>false</td>
-                                            <td>A boolean use to open the box in modal state (with a layer that block interaction with other element).</td>
+                                            <td>closeText</td>
+                                            <td></td>
+                                            <td>A string that represent the text visible in the close button. </td>
                                         </tr>
                                         <tr>
                                             <td>fnClose</td>
