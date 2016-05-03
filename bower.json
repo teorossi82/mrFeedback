@@ -1,6 +1,10 @@
 {
   "name": "mrFeedback",
+<<<<<<< HEAD
   "version": "0.2.0",
+=======
+  "version": "0.2.1",
+>>>>>>> master
   "homepage": "http://teorossi82.github.io/mrFeedback/",
   "authors": [
     "Matteo Rossi <teorossi82@yahoo.it>"

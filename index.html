@@ -55,6 +55,7 @@ var feedback = {
     msg:"This component is cool!!!",
     animation:"zoom",
     theme:"ios",
+    modal:true,
     close: true,
     fnClose:{
         func:functionClose,
@@ -111,6 +112,7 @@ $uiMrFeedback.open(feedback);</span></code></pre>
                                     <h3>Usage</h3>
                                 </div>
                                 <ul>
+                                    <li>Inject module "mrFeedbackMdl" into your app</li>
                                     <li>Inject to your controller the $uiMrFeedback provider.</li>
                                     <li>
                                         create a new instance of the plugin with the method $uiMrFeedback.open and passing the option's object:
@@ -204,6 +206,11 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                             <td>close</td>
                                             <td>true<br/>false</td>
                                             <td>A boolean use to show or not the standard close button.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>modal</td>
+                                            <td>true<br/>false</td>
+                                            <td>A boolean use to open the box in modal state (with a layer that block interaction with other element).</td>
                                         </tr>
                                         <tr>
                                             <td>fnClose</td>

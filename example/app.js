@@ -31,6 +31,7 @@
                 msg:"You can add buttons connected to functions that will be triggered on click of the button (see console log)!!",
                 animation:"zoom",
                 theme:"ios",
+                modal:true,
                 close: true,
                 fnClose:{
                     func:functionClose,
