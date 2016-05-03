@@ -64,7 +64,8 @@
         var directive = {
             restrict: 'E',
             link:function(scope,elem,attrs){
-                var template = '<div class="mrFeedback" ng-class="mrFeedback.theme">' +
+                var template =  '<div ng-if="mrFeedback.feedback.modal" class="mrFeedbackLayout"></div>' +
+                                '<div class="mrFeedback" ng-class="mrFeedback.theme">' +
                                     '<div class="box-feedback">' +
                                         '<div class="box-left">' +
                                             '<i class="fa fa-exclamation-triangle"></i>' +
