@@ -1,4 +1,4 @@
-# mrFeedback - 0.2.1
+# mrFeedback - 0.2.2
 
 `mrFeedback` - Create box feedback for your Angular App: simple, complete, personalized. With this plugin you can create and show a "box feedback" to the user. You can set "title" and "message" to show, add buttons that run connected functions when clicked, ecc...
 
