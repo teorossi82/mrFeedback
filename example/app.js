@@ -32,6 +32,7 @@
                 theme:"ios",
                 modal:true,
                 close: true,
+                closeText:"Chiudi",
                 fnClose:{
                     func:functionClose,
                     params:["Ok!"]

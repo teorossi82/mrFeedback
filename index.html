@@ -56,6 +56,7 @@ var feedback = {
     theme:"ios",
     modal:true, /*with modal:true the animation option is disabled*/
     close: true,
+    closeText:"Chiudi",
     fnClose:{
         func:functionClose,
         params:["Ok!"]
@@ -202,14 +203,19 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                             <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark>. With modal:true the animation option is disabled.</td>
                                         </tr>
                                         <tr>
+                                            <td>modal</td>
+                                            <td>true<br/>false</td>
+                                            <td>A boolean use to open the box in modal state (with a layer that block interaction with other element). With modal:true the animation option is disabled.</td>
+                                        </tr>
+                                        <tr>
                                             <td>close</td>
                                             <td>true<br/>false</td>
                                             <td>A boolean use to show or not the standard close button.</td>
                                         </tr>
                                         <tr>
-                                            <td>modal</td>
-                                            <td>true<br/>false</td>
-                                            <td>A boolean use to open the box in modal state (with a layer that block interaction with other element). With modal:true the animation option is disabled.</td>
+                                            <td>closeText</td>
+                                            <td></td>
+                                            <td>A string that represent the text visible in the close button. </td>
                                         </tr>
                                         <tr>
                                             <td>fnClose</td>

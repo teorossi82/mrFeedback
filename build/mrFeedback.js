@@ -1,5 +1,5 @@
 /*
- mrFeedback v0.2.2
+ mrFeedback v0.2.3
  (c) 2010-2016 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
  License: MIT
 */
@@ -91,7 +91,7 @@
                                                     '</div>' +
                                                 '</div>' +
                                                 '<div class="button-feedback button-close" ng-if="mrFeedback.feedback.close" ng-click="mrFeedback.close()">' +
-                                                    'Close' +
+                                                    '{{mrFeedback.feedback.closeText || "Close"}}' +
                                                 '</div>' +
                                             '</div>' +
                                         '</div>' +
