@@ -1,4 +1,4 @@
-# mrFeedback - 0.2.3
+# mrFeedback - 0.2.4
 
 `mrFeedback` - Create box feedback for your Angular App: simple, complete, personalized. With this plugin you can create and show a "box feedback" to the user. You can set "title" and "message" to show, add buttons that run connected functions when clicked, ecc...
 
@@ -18,6 +18,9 @@ The plugin requires
 Open site [http://teorossi82.github.io/mrFeedback](http://teorossi82.github.io/mrFeedback/)
 
 ## News
+v0.2.4
+* Now message is binding html, so you can pass simple text or html to `msg` field.
+
 v0.2.3
 * Added option `closeText` to pass a string to the close button of the box. Is visible only with the option `close:true` and with the theme that expect a close button with a text.
 

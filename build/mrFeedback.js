@@ -1,5 +1,5 @@
 /*
- mrFeedback v0.2.3
+ mrFeedback v0.2.4
  (c) 2010-2016 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
  License: MIT
 */
@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('mrFeedbackMdl',[])
+        .module('mrFeedbackMdl',['ngSanitize'])
         .provider('mrFeedbackConfig', function () {
         var userAgent = [
             {"os":"Windows","theme":"windows10"},
@@ -81,7 +81,7 @@
                                             '</div>' +
                                             '<div class="box-body">' +
                                                 '<div class="box-header-body">{{mrFeedback.feedback.title}}</div>' +
-                                                '{{mrFeedback.feedback.msg}}' +
+                                                '<div class="box-msg-body" ng-bind-html="mrFeedback.feedback.msg"></div>' +
                                             '</div>' +
                                             '<div class="buttons-feedback">' +
                                                 '<div class="box-btnAction" ng-if="mrFeedback.feedback.btnAction">' +

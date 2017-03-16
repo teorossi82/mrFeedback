@@ -1,6 +1,6 @@
 {
   "name": "mr-feedback",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "is a component which you can create and show a 'box feedback' to the user. You can set 'title' and 'message' to show, add button that clicked trigger function that you pass it, ecc...",
   "main": "dist/mrFeedback.js",
   "scripts": {

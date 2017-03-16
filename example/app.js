@@ -29,8 +29,7 @@
             var feedback = {
                 title:"My box title",
                 msg:"You can add buttons connected to functions that will be triggered on click of the button (see console log)!!",
-                theme:"ios",
-                modal:true,
+                theme:"notification",
                 close: true,
                 closeText:"Chiudi",
                 fnClose:{

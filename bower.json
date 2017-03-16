@@ -1,6 +1,6 @@
 {
   "name": "mrFeedback",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "homepage": "http://teorossi82.github.io/mrFeedback/",
   "authors": [
     "Matteo Rossi <teorossi82@yahoo.it>"
@@ -13,13 +13,16 @@
   "dependencies": {
     "jquery": "^1.8.0",
     "angular": "^1.4.0",
-    "components-font-awesome":"^4.5.0"
+    "components-font-awesome":"^4.5.0",
+    "angular-sanitize": "^1.4.0"
   },
   "keywords": [
     "alert",
     "feedback",
     "box alert",
-    "box feedback"
+    "box feedback",
+    "simple feedback",
+    "angular feedback"
   ],
   "license": "MIT",
   "ignore": [
