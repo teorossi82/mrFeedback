@@ -66,7 +66,7 @@
             link:function(scope,elem,attrs){
                 var template =  '<div ng-if="mrFeedback.feedback.modal" class="mrFeedbackLayout"></div>' +
                                 '<div class="mrFeedback" ng-class="mrFeedback.theme">' +
-                                    '<div class="box-feedback">' +
+                                    '<div class="box-feedback {{mrFeedback.notificationType}}">' +
                                         '<div class="box-left">' +
                                             '<i class="fa fa-exclamation-triangle"></i>' +
                                         '</div>' +
@@ -181,7 +181,16 @@
     /** @ngInject */
     function mrFeedbackController($scope,$element,mrFeedbackConfig,$timeout) {
         var vm = this;
+        var render = function(){
+            var notDelay = vm.feedback && vm.feedback.theme === "notification" ? vm.feedback.notificationDelay : null;
+            if(notDelay){
+                setTimeout(function(){
+                   vm.close(); 
+                },notDelay)
+            }
+        };
         var animation = vm.feedback && vm.feedback.animation ? "animation-" + vm.feedback.animation : "animation-fade";
+        vm.notificationType = vm.feedback && vm.feedback.theme === "notification" ? vm.feedback.notificationType || "" : "";
         vm.close = function(){
             if(vm.feedback.fnClose){
                 var params = vm.feedback.fnClose.params;
@@ -246,5 +255,6 @@
                 }
             //}
         });
+        render();
     }
 })();

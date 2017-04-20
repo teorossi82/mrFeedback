@@ -83,6 +83,8 @@
                 close: vm.btnClose,
                 animation:vm.animation,
                 theme:vm.theme,
+                notificationType:vm.notificationType,
+                notificationDelay:vm.notificationDelay,
                 autoClose: vm.autoClose,
                 btnAction: vm.btnAction ? arBtnAction : null
             };

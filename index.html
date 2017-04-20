@@ -199,6 +199,16 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                             <td>A string that represent the theme used to render the box. The default theme depends on the browser user agent: <ul><li>mac: for Mac computer</li><li>windows10: for Windows computer and devices</li><li>ios: for iOS devices</li><li>android: for Android devices</li></ul>You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultTheme = "facebook"</mark></td>
                                         </tr>
                                         <tr>
+                                            <td>notificationType</td>
+                                            <td>default<br/>warning<br/>danger<br/>info<br/>success<br/></td>
+                                            <td>A string that represent the color of notification box. Valid only with <mark>theme = notification</mark></td>
+                                        </tr>
+                                        <tr>
+                                            <td>notificationDelay</td>
+                                            <td></td>
+                                            <td>A number that represents the delay (in milliseconds) after which the box should close automatically. Valid only with <mark>theme = notification</mark></td>
+                                        </tr>
+                                        <tr>
                                             <td>animation</td>
                                             <td>fade<br/>zoom<br/>slide-left<br/>slide-top<br/>flip<br/></td>
                                             <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark>. With modal:true the animation option is disabled.</td>
@@ -260,7 +270,22 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                         <option value="android">Android</option>
                                         <option value="ios">iOS</option>
                                         <option value="facebook">Facebook</option>
+                                        <option value="notification">Notification</option>
                                     </select>
+                                </div>
+                                <div class="form-group" ng-if="vm.theme==='notification'">
+                                    <p><b>Notification type</b></p>
+                                    <select class="form-control" ng-model="vm.notificationType" >
+                                        <option value="">Default</option>
+                                        <option value="warning">Warning</option>
+                                        <option value="danger">Danger</option>
+                                        <option value="info">Info</option>
+                                        <option value="success">Success</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" ng-if="vm.theme==='notification'">
+                                    <label for="title">Notification delay (in milliseconds - if empty box remain open)</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Close delay" ng-model="vm.notificationDelay">
                                 </div>
                                 <div class="form-group">
                                     <p><b>Animation</b></p>
