@@ -1,5 +1,5 @@
 /*
- mrFeedback v0.2.4
+ mrFeedback v0.2.7
  (c) 2010-2016 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
  License: MIT
 */
@@ -71,7 +71,7 @@
                                             '<i class="fa fa-exclamation-triangle"></i>' +
                                         '</div>' +
                                         '<div class="box-content">' +
-                                            '<div class="box-header">' +
+                                            '<div class="box-header" ng-if="mrFeedback.showHeader">' +
                                                 '<div class="title">' +
                                                     '{{mrFeedback.feedback.title}}' +
                                                 '</div>' +
@@ -191,6 +191,11 @@
         };
         var animation = vm.feedback && vm.feedback.animation ? "animation-" + vm.feedback.animation : "animation-fade";
         vm.notificationType = vm.feedback && vm.feedback.theme === "notification" ? vm.feedback.notificationType || "" : "";
+        var detectShowHeader = function(){
+            var show = vm.feedback && vm.feedback.theme === "notification" ? vm.feedback.close ? true : false : true;
+            return show;
+        };
+        vm.showHeader = detectShowHeader();
         vm.close = function(){
             if(vm.feedback.fnClose){
                 var params = vm.feedback.fnClose.params;
@@ -254,6 +259,11 @@
                     removeAnimation();
                 }
             //}
+        });
+        $scope.$watch("mrFeedback.feedback.close",function(newVal,oldVal){
+            if(newVal!== oldVal){
+                vm.showHeader = detectShowHeader();
+            }
         });
         render();
     }
