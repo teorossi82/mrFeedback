@@ -40,6 +40,12 @@
             this.open = function(options) {
                 if(!options)
                     return $log.error("mrFeedback: An object with title and msg field is mandatory to create the box");
+                if(options.theme && options.theme==="notification"){
+                    var notContainer = $("body").find("#mrFeedback-notContainer");
+                    if(!notContainer.length)
+                        $("body").append("<div id='mrFeedback-notContainer'></div>");
+                    options.appendTo = "#mrFeedback-notContainer";
+                }
                 var container = (options.appendTo && $(options.appendTo).length>0) ? options.appendTo : "body";
                 $(container).append("<mr-feedback-content-" + index + " class='mrFeedbackContent'></mr-feedback-content>");
                 mrFeedbackScope["instancesFeedback_" + index] = options;
