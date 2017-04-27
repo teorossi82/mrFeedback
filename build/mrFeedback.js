@@ -237,7 +237,14 @@
                 $element.find(".mrFeedback").removeClass("mrFeedback-show " + animation);
                 animation = mrFeedbackConfig.defaultAnimation;
                 $element.parent()[0].remove();
+                detectNotContainerEmpty();
             },350);
+        };
+        var detectNotContainerEmpty = function(){
+            var notContainer = $("body").find("#mrFeedback-notContainer");
+            var check = notContainer.html();
+            if(!check)
+                notContainer.remove();
         };
         var centerBox = function(){
             var box = $element.find(".mrFeedback");
