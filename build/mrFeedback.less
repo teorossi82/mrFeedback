@@ -493,7 +493,7 @@
         width: auto;
         user-select: none;
         .box-feedback {
-            box-shadow: 0px 0px 8px 4px rgba(200, 200, 200, 0.5);
+            box-shadow: none;
             padding: 0px;
             max-width: 400px;
             right: 10px;
@@ -501,6 +501,9 @@
             position:relative;
             margin: 0 0 10px 0;
             display: inline-block;
+            .box-content{
+                min-height: 35px;
+            }
             .box-header {
                 background: transparent;
                 .button-close{
@@ -526,45 +529,66 @@
                 color: #fff;
                 font-size:12px;
                 line-height: 14px;
-                padding: 0 10px 10px;
+                padding: 5px 8px 2px;
                 font-weight: 200;
                 .box-header-body{
                     display: block;
-                    font-size: 18px;
-                    padding: 5px;
+                    font-size: 16px;
+                    padding: 3px 5px;
                     font-weight: 400;
                 }
             }
             .buttons-feedback{
-                /*.box-btnAction{
-                    display: block;
+                text-align: right;
+                .button-feedback{
+                    margin: 3px 5px 5px;
+                    padding: 3px 10px;
+                    font-size: 12px;
+                    background: #FFF;
                 }
-                .button-feedback {
-                    border-radius:0px;
-                    font-size: 16px;
-                    background: transparent;
-                    display: block;
-                    margin:0;
-                    border-top:1px solid #eee;
-                    color:#66AFF4;
-                    font-weight: 200;
-                    padding: 13px;
-                }*/
                 .button-close{
                     display:none;
                 }
             }
             &.warning{
                 background: fade(@warning-color,70%);
+                .box-header-body{
+                    color:darken(@warning-color,30%);
+                }
+                .button-feedback{
+                    color:darken(@warning-color,30%);
+                    border: 1px solid;
+                }
             }
             &.danger{
                 background: fade(@danger-color,70%);
+                .box-header-body{
+                    color:darken(@danger-color,30%);
+                }
+                .button-feedback{
+                    color:darken(@danger-color,30%);
+                    border: 1px solid;
+                }
             }
             &.info{
                 background: fade(@info-color,70%);
+                .box-header-body{
+                    color:darken(@info-color,30%);
+                }
+                .button-feedback{
+                    color:darken(@info-color,30%);
+                    border: 1px solid;
+                }
             }
             &.success{
                 background: fade(@success-color,70%);
+                .box-header-body{
+                    color:darken(@success-color,30%);
+                }
+                .button-feedback{
+                    color:darken(@success-color,30%);
+                    border: 1px solid;
+                }
             }
         }
     }
