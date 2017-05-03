@@ -25,6 +25,7 @@
                         <ol>
                             <li>Show <mark>simple message</mark>;</li>
                             <li>Show message with <mark>personalized buttons</mark> and <mark>personalized function</mark> to trigger on click of the buttons;</li>
+                            <li>Show <mark>real time notifications</mark>;</li>
                         </ol>
                         <a class="btn btn-primary" href="https://github.com/teorossi82/mrFeedback">View on Github</a>
                         <a class="btn btn-primary" href="https://github.com/teorossi82/mrFeedback/archive/master.zip">Download zip</a>
@@ -197,6 +198,11 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                             <td>theme</td>
                                             <td>bootstrap<br/>mac<br/>windows10<br/>ios<br/>android<br/>facebook<br/>post-it<br/>post-it-alert</td>
                                             <td>A string that represent the theme used to render the box. The default theme depends on the browser user agent: <ul><li>mac: for Mac computer</li><li>windows10: for Windows computer and devices</li><li>ios: for iOS devices</li><li>android: for Android devices</li></ul>You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultTheme = "facebook"</mark></td>
+                                        </tr>
+                                        <tr>
+                                            <td>customClass</td>
+                                            <td></td>
+                                            <td>A string that represent a class to add at the box with tou can cutomize your mrFeedback.</td>
                                         </tr>
                                         <tr>
                                             <td>notificationType</td>

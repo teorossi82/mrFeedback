@@ -1,5 +1,5 @@
 /*
- mrFeedback v0.2.8
+ mrFeedback v0.2.11
  (c) 2010-2016 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
  License: MIT
 */
@@ -72,7 +72,7 @@
             link:function(scope,elem,attrs){
                 var template =  '<div ng-if="mrFeedback.feedback.modal" class="mrFeedbackLayout"></div>' +
                                 '<div class="mrFeedback" ng-class="mrFeedback.theme">' +
-                                    '<div class="box-feedback {{mrFeedback.notificationType}}">' +
+                                    '<div class="box-feedback {{mrFeedback.notificationType}} {{mrFeedback.feedback.customClass}}">' +
                                         '<div class="box-left">' +
                                             '<i class="fa fa-exclamation-triangle"></i>' +
                                         '</div>' +
