@@ -215,6 +215,11 @@ var instance = $uiMrFeedback.open(feedback);</span></code></pre>
                                             <td>A number that represents the delay (in milliseconds) after which the box should close automatically. Valid only with <mark>theme = notification</mark></td>
                                         </tr>
                                         <tr>
+                                            <td>icon</td>
+                                            <td></td>
+                                            <td>If you want to show an icon at left side of the body, you have to add at the options a field <mark>icon</mark>. The fields of the object are: <ul><li><mark>type</mark>: 'img' or 'class'</li><li><mark>src</mark>: the src of the icon image (only if the type are 'img')</li><li><mark>class</mark>: the class that represent the icon, for example 'fa fa-check' if use font-awesome (only if the type are 'class')</li></ul></td>
+                                        </tr>
+                                        <tr>
                                             <td>animation</td>
                                             <td>fade<br/>zoom<br/>slide-left<br/>slide-top<br/>flip<br/></td>
                                             <td>A string that represent the animation used to open and close the box. The default value is <mark>"fade"</mark>. You can overrides this default value in your module configuration doing: <mark>mrFeedbackConfigProvider.defaultAnimation = "zoom"</mark>. With modal:true the animation option is disabled.</td>

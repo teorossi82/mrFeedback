@@ -73,10 +73,10 @@
                 var template =  '<div ng-if="mrFeedback.feedback.modal" class="mrFeedbackLayout"></div>' +
                                 '<div class="mrFeedback" ng-class="mrFeedback.theme">' +
                                     '<div class="box-feedback {{mrFeedback.notificationType}} {{mrFeedback.feedback.customClass}}">' +
-                                        '<div class="box-left">' +
-                                            '<i class="fa fa-exclamation-triangle"></i>' +
+                                        '<div class="box-left" ng-if="mrFeedback.showLeft">' +
+                                            '<i class="fa fa-exclamation-triangle" ng-if="mrFeedback.showPostItIcon"></i>' +
                                         '</div>' +
-                                        '<div class="box-content">' +
+                                        '<div class="box-content" ng-class="{\'with-left-icon\':mrFeedback.showLeft}">' +
                                             '<div class="box-header" ng-if="mrFeedback.showHeader">' +
                                                 '<div class="title">' +
                                                     '{{mrFeedback.feedback.title}}' +
@@ -86,8 +86,14 @@
                                                 '</div>' +
                                             '</div>' +
                                             '<div class="box-body">' +
-                                                '<div class="box-header-body">{{mrFeedback.feedback.title}}</div>' +
-                                                '<div class="box-msg-body" ng-bind-html="mrFeedback.feedback.msg"></div>' +
+                                                '<div class="box-body-left" ng-if="mrFeedback.showBodyLeftIcon">' +
+                                                    '<img ng-src=\"{{mrFeedback.feedback.icon.src}}\" ng-if="mrFeedback.showBodyLeftIconImg"/>' +
+                                                    '<i class="body-icon {{mrFeedback.feedback.icon.class}}" ng-if="mrFeedback.showBodyLeftIconClass"></i>' +
+                                                '</div>' +
+                                                '<div class="box-body-right" ng-class="{\'with-left-icon\':mrFeedback.showBodyLeftIcon}">' +
+                                                    '<div class="box-header-body">{{mrFeedback.feedback.title}}</div>' +
+                                                    '<div class="box-msg-body" ng-bind-html="mrFeedback.feedback.msg"></div>' +
+                                                '</div>' +
                                             '</div>' +
                                             '<div class="buttons-feedback">' +
                                                 '<div class="box-btnAction" ng-if="mrFeedback.feedback.btnAction">' +
@@ -194,6 +200,11 @@
                    vm.close(); 
                 },notDelay)
             }
+            vm.showLeft = vm.feedback && vm.feedback.theme==="post-it-alert"? true : false;
+            vm.showPostItIcon = vm.feedback.theme==="post-it-alert";
+            vm.showBodyLeftIcon = vm.feedback && vm.feedback.icon;
+            vm.showBodyLeftIconImg = vm.showBodyLeftIcon && vm.feedback.icon.type==="img";
+            vm.showBodyLeftIconClass = vm.showBodyLeftIcon && vm.feedback.icon.type==="class";
         };
         var animation = vm.feedback && vm.feedback.animation ? "animation-" + vm.feedback.animation : "animation-fade";
         vm.notificationType = vm.feedback && vm.feedback.theme === "notification" ? vm.feedback.notificationType || "" : "";

@@ -100,11 +100,47 @@
                 display: none;
             }
         }
+        .box-left{
+            display: block;
+            float: left;
+            width: 50px;
+            text-align:center;
+            i{
+                font-size: 40px;
+            }
+            img{
+                max-width: 30px;
+                max-height:30px;
+            }
+        }
+        .box-content{
+            &.with-left-icon{
+                margin-left: 50px;
+            }
+        }
         .box-body {
             padding: 10px;
             color: #000;
             .box-header-body{
                 display: none;
+            }
+            .box-body-left{
+                display: block;
+                float: left;
+                width: 30px;
+                text-align:center;
+                img{
+                    max-width: 30px;
+                    max-height:30px;
+                }
+                .body-icon{
+                   font-size: 30px; 
+                }
+            }
+            .box-body-right{
+                &.with-left-icon{
+                    margin-left: 35px;
+                }
             }
         }
         .box-btnAction{
@@ -120,9 +156,9 @@
         padding: 10px;
         cursor:pointer;
     }
-    .box-left{
-        display: none;
-    }
+    // .box-left{
+    //     display: none;
+    // }
     &.dark{
         .box-feedback {
             background: rgba(0,0,0,0.7);
@@ -151,6 +187,11 @@
             .box-body {
                 color: #000;
                 text-align: left;
+                .box-body-right{
+                    &.with-left-icon{
+                        line-height: 35px;
+                    }
+                }
             }
         }
         &-alert{
@@ -160,9 +201,6 @@
                 box-shadow: 3px 3px 6px 2px rgba(200, 200, 200, 0.5);
                 text-align: left;
                 padding: 10px;
-                .box-content{
-                    margin-left: 50px;
-                }
                 .box-header {
                     background: #FFFFCC;
                     color:#000;
@@ -171,14 +209,10 @@
                 .box-body {
                     color: #000;
                     text-align: left;
-                }
-                .box-left{
-                    display: block;
-                    float: left;
-                    width: 50px;
-                    text-align:center;
-                    i{
-                        font-size: 40px;
+                    .box-body-right{
+                        &.with-left-icon{
+                            line-height: 35px;
+                        }
                     }
                 }
             }
@@ -243,6 +277,11 @@
                 font-size:13px;
                 line-height: 16px;
                 padding:15px 10px;
+                .box-body-right{
+                    &.with-left-icon{
+                        line-height: 35px;
+                    }
+                }
             }
             .buttons-feedback{
                 background: #F3F3F3;
@@ -379,6 +418,11 @@
                 font-weight: 100;
                 border-right:10px solid #5A93BB;
                 border-left:10px solid #5A93BB;
+                .box-body-right{
+                    &.with-left-icon{
+                        line-height: 35px;
+                    }
+                }
             }
             .buttons-feedback{
                 background: #F0F0F0;
@@ -465,6 +509,11 @@
                 font-size:16px;
                 line-height: 20px;
                 padding:15px 20px;
+                .box-body-right{
+                    &.with-left-icon{
+                        line-height: 35px;
+                    }
+                }
             }
             .buttons-feedback{
                 background: #F5F5F5;
