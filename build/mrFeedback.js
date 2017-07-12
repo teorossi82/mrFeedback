@@ -1,6 +1,6 @@
 /*
- mrFeedback v0.2.11
- (c) 2010-2016 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
+ mrFeedback v0.3.0
+ (c) 2010-2018 Matteo Rossi, https://it.linkedin.com/in/matteorossi2, 
  License: MIT
 */
 (function() {
@@ -112,7 +112,7 @@
                 
                 var initFeedback = function(){
                     var tpl = (scope.mrFeedback.feedback && scope.mrFeedback.feedback.template) ? scope.mrFeedback.feedback.template : template;
-                    elem.html(tpl).show();
+                    elem.html(tpl);
                     $compile(elem.contents())(scope);
                     initDraggable();
                 };
@@ -201,7 +201,7 @@
                 },notDelay)
             }
             vm.showLeft = vm.feedback && vm.feedback.theme==="post-it-alert"? true : false;
-            vm.showPostItIcon = vm.feedback.theme==="post-it-alert";
+            vm.showPostItIcon = vm.feedback && vm.feedback.theme==="post-it-alert";
             vm.showBodyLeftIcon = vm.feedback && vm.feedback.icon;
             vm.showBodyLeftIconImg = vm.showBodyLeftIcon && vm.feedback.icon.type==="img";
             vm.showBodyLeftIconClass = vm.showBodyLeftIcon && vm.feedback.icon.type==="class";
@@ -229,23 +229,26 @@
         var animation = mrFeedbackConfig.defaultAnimation;
         var setAnimation = function(){
             animation = vm.feedback && vm.feedback.animation ? "animation-" + vm.feedback.animation : "animation-" + animation;
-            $element.find(".mrFeedback").addClass("mrFeedback-show " + animation);
+            var boxMr = $element.find(".mrFeedback").length>0 ? $element.find(".mrFeedback") : $element.contents(".mrFeedback");
+            boxMr.addClass("mrFeedback-show " + animation);
             $timeout(function(){
-                $element.find(".mrFeedback").addClass(animation + "-show");
+                boxMr.addClass(animation + "-show");
             },50);
         };
         var setModal = function(){
             animation = "animation-none";
-            $element.find(".mrFeedback").addClass("mrFeedback-show " + animation);
+            var boxMr = $element.find(".mrFeedback").length>0 ? $element.find(".mrFeedback") : $element.contents(".mrFeedback");
+            boxMr.addClass("mrFeedback-show " + animation);
             $timeout(function(){
-                $element.find(".mrFeedback").addClass(animation + "-show");
+                boxMr.addClass(animation + "-show");
                 centerBox();
             },50);
         };
         var removeAnimation = function(){
-            $element.find(".mrFeedback").removeClass(animation + "-show");
+            var boxMr = $element.find(".mrFeedback").length>0 ? $element.find(".mrFeedback") : $element.contents(".mrFeedback");
+            boxMr.removeClass(animation + "-show");
             $timeout(function(){
-                $element.find(".mrFeedback").removeClass("mrFeedback-show " + animation);
+                boxMr.removeClass("mrFeedback-show " + animation);
                 animation = mrFeedbackConfig.defaultAnimation;
                 $element.parent()[0].remove();
                 detectNotContainerEmpty();
@@ -258,7 +261,7 @@
                 notContainer.remove();
         };
         var centerBox = function(){
-            var box = $element.find(".mrFeedback");
+            var box = $element.find(".mrFeedback").length>0 ? $element.find(".mrFeedback") : $element.contents(".mrFeedback");
             var boxHeight = angular.element(box).height();
             var boxTop = (window.innerHeight-boxHeight)/2;
             angular.element(box).css("top",boxTop+"px");
